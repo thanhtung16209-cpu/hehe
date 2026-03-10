@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký Discord</title>
+    <link rel="stylesheet" href="dangki.css">
+</head>
+<body>
+    <div class="register-container">
+        <h2>Tạo tài khoản</h2>
+        
+        <div class="input-group">
+            <label>EMAIL <span>*</span></label>
+            <input type="text" id="reg-email">
+        </div>
+
+        <div class="input-group">
+            <label>TÊN HIỂN THỊ</label>
+            <input type="text">
+        </div>
+
+        <div class="input-group">
+            <label>TÊN ĐĂNG NHẬP <span>*</span></label>
+            <input type="text">
+        </div>
+
+        <div class="input-group">
+            <label>MẬT KHẨU <span>*</span></label>
+            <input type="password">
+        </div>
+
+        <div class="input-group">
+            <label>NGÀY SINH <span>*</span></label>
+            <div class="dob-selectors">
+                <select id="day-select"><option disabled selected>Ngày</option></select>
+                <select id="month-select"><option disabled selected>Tháng</option></select>
+                <select id="year-select"><option disabled selected>Năm</option></select>
+            </div>
+        </div>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="opt-in">
+            <label for="opt-in" class="checkbox-text">
+                (Không bắt buộc) Chấp nhận email thông báo về cập nhật của Discord...
+            </label>
+        </div>
+
+        <p class="policy-text">
+            Khi nhấn vào "Tạo tài khoản", bạn đồng ý với <a href="#">Điều khoản Dịch vụ</a> và <a href="#">Chính sách Bảo mật</a>.
+        </p>
+
+        <button class="submit-btn" id="btn-create">Tiếp tục</button>
+
+        <p class="login-link">
+           <p class="login-link"><a href="t.html">Đã có tài khoản? Đăng nhập</a></p>
+        </p>
+    </div>
+
+    <script>
+        // Tự động tạo dữ liệu cho các ô Select
+        const daySelect = document.getElementById('day-select');
+        const monthSelect = document.getElementById('month-select');
+        const yearSelect = document.getElementById('year-select');
+
+        for (let i = 1; i <= 31; i++) daySelect.innerHTML += `<option value="${i}">${i}</option>`;
+        for (let i = 1; i <= 12; i++) monthSelect.innerHTML += `<option value="${i}">Tháng ${i}</option>`;
+        for (let i = 2015; i >= 1970; i--) yearSelect.innerHTML += `<option value="${i}">${i}</option>`;
+
+        // Logic lưu email vào bộ nhớ (để trang đăng nhập nhận diện được)
+        document.getElementById('btn-create').addEventListener('click', function() {
+            const email = document.getElementById('reg-email').value;
+            if(email) {
+                let users = JSON.parse(localStorage.getItem('registeredUsers')) || ["admin@gmail.com"];
+                users.push(email);
+                localStorage.setItem('registeredUsers', JSON.stringify(users));
+                alert("Đăng ký thành công! Bạn có thể đăng nhập ngay.");
+                window.location.href = "t.html"; 
+            } else {
+                alert("Vui lòng nhập Email!");
+            }
+        });
+    </script>
+</body>
+</html>

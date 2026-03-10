@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập </title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-form">
+            <h2>Chào mừng trở lại!</h2>
+            <p class="subtitle">Rất vui mừng khi được gặp lại bạn!</p>
+
+            <div class="input-group">
+    <label>EMAIL HOẶC SỐ ĐIỆN THOẠI <span>*</span></label>
+    <input type="text" id="email-input">
+    <p id="error-message" style="color: #f23f42; font-size: 12px; margin-top: 5px; display: none;">
+        Email bạn đã cung cấp không tồn tại
+    </p>
+</div>
+
+
+            
+            <div class="input-group">
+                <label>MẬT KHẨU <span>*</span></label>
+                <input type="password">
+                <a href="#" class="forgot-password">Quên mật khẩu?</a>
+            </div>
+            
+            <button class="login-button">Đăng nhập</button>
+            <p class="register">Cần một tài khoản? <a href="dangki.html">Đăng ký</a></p>
+        </div>
+
+        <div class="qr-section">
+            <div class="qr-code">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example" alt="QR Code">
+            </div>
+            <h3>Đăng nhập bằng Mã QR</h3>
+            <p>Quét bằng <strong>ứng dụng trên Điện Thoại</strong> để đăng nhập tức thì.</p>
+        </div>
+    </div>
+
+    <script>
+    // 1. Danh sách email đã đăng ký (giả lập)
+    const registeredUsers = ["admin@gmail.com", "user123@gmail.com", "test@discord.com"];
+
+    // 2. Lấy các thành phần HTML
+    const loginBtn = document.getElementById('login-btn');
+    const emailInput = document.getElementById('email-input');
+    const errorMessage = document.getElementById('error-message');
+
+    // 3. Xử lý khi click vào nút Đăng nhập
+    loginBtn.addEventListener('click', function() {
+        const emailValue = emailInput.value.trim();
+
+        // Kiểm tra xem email nhập vào có trong danh sách không
+        if (registeredUsers.includes(emailValue)) {
+            // Nếu có: Ẩn lỗi và thông báo thành công
+            errorMessage.style.display = 'none';
+            alert("Đăng nhập thành công!");
+        } else {
+            // Nếu không: Hiện dòng chữ đỏ thông báo lỗi
+            errorMessage.style.display = 'block';
+            emailInput.style.borderColor = '#f23f42'; // Đổi viền ô nhập thành đỏ cho đẹp
+        }
+    });
+
+    // 4. Ẩn thông báo lỗi khi người dùng bắt đầu gõ lại
+    emailInput.addEventListener('input', function() {
+        errorMessage.style.display = 'none';
+        emailInput.style.borderColor = 'transparent';
+    });
+</script>
+</body>
+</html>

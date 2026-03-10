@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'gg sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body {
+    background: url('back.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.register-container {
+    background-color: #313338;
+    padding: 32px;
+    border-radius: 8px;
+    width: 480px;
+    color: #dbdee1;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    color: #b5bac1;
+    margin-bottom: 8px;
+}
+
+label span { color: #f23f42; }
+
+input[type="text"], input[type="password"], select {
+    width: 100%;
+    padding: 10px;
+    background-color: #1e1f22;
+    border: none;
+    border-radius: 3px;
+    color: #dbdee1;
+    outline: none;
+}
+
+/* Chia 3 cột cho ngày tháng năm */
+.dob-selectors {
+    display: flex;
+    gap: 10px;
+}
+
+.dob-selectors select {
+    flex: 1;
+    cursor: pointer;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.checkbox-text {
+    font-size: 12px;
+    color: #b5bac1;
+    font-weight: normal;
+}
+
+.policy-text {
+    font-size: 12px;
+    color: #949ba4;
+    margin-bottom: 20px;
+}
+
+.policy-text a {
+    color: #00a8fc;
+    text-decoration: none;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #5865f2;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.submit-btn:hover { background-color: #4752c4; }
+
+.login-link {
+    margin-top: 10px;
+}
+
+.login-link a {
+    color: #00a8fc;
+    text-decoration: none;
+    font-size: 14px;
+}
